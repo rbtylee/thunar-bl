@@ -1,0 +1,8 @@
+GtkWidget AtkImplementorIface GtkBuildable
+GtkContainer AtkImplementorIface GtkBuildable
+GtkBin AtkImplementorIface GtkBuildable
+ThunarxPropertyPage AtkImplementorIface GtkBuildable
+GtkBox AtkImplementorIface GtkBuildable GtkOrientable
+ThunarxRenamer AtkImplementorIface GtkBuildable GtkOrientable
+GtkWidgetAccessible AtkComponent
+GtkContainerAccessible AtkComponent

@@ -1,0 +1,129 @@
+
+<refentry id="ThunarxMenu">
+<refmeta>
+<refentrytitle role="top_of_page" id="ThunarxMenu.top_of_page">ThunarxMenu</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>THUNARX Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>ThunarxMenu</refname>
+<refpurpose>The base class for submenus added to the context menus</refpurpose>
+</refnamediv>
+
+<refsect1 id="ThunarxMenu.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="ThunarxMenu"><returnvalue>ThunarxMenu</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-menu-new">thunarx_menu_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-menu-append-item">thunarx_menu_append_item</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-menu-get-items">thunarx_menu_get_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxMenu.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="ThunarxMenu-struct">ThunarxMenu</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxMenu.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> ThunarxMenu
+</screen>
+</refsect1>
+
+<refsect1 id="ThunarxMenu.includes"><title>Includes</title><synopsis>#include &lt;thunarx/thunarx.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="ThunarxMenu.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The class for submenus that can be added to Thunar's context menus. Extensions
+can provide ThunarxMenu objects by attaching them to ThunarxMenuItem objects,
+using <link linkend="thunarx-menu-item-set-menu"><function>thunarx_menu_item_set_menu()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="ThunarxMenu.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="thunarx-menu-new" role="function">
+<title>thunarx_menu_new&#160;()</title>
+<indexterm zone="thunarx-menu-new"><primary>thunarx_menu_new</primary></indexterm>
+<programlisting language="C"><link linkend="ThunarxMenu"><returnvalue>ThunarxMenu</returnvalue></link>&#160;*
+thunarx_menu_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new menu that can be added to the toolbar or to a contextual menu.</para>
+<refsect3 id="thunarx-menu-new.returns" role="returns">
+<title>Returns</title>
+<para> a newly created <link linkend="ThunarxMenu"><type>ThunarxMenu</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-menu-append-item" role="function">
+<title>thunarx_menu_append_item&#160;()</title>
+<indexterm zone="thunarx-menu-append-item"><primary>thunarx_menu_append_item</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+thunarx_menu_append_item (<parameter><link linkend="ThunarxMenu"><type>ThunarxMenu</type></link> *menu</parameter>,
+                          <parameter><link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> *item</parameter>);</programlisting>
+<refsect3 id="thunarx-menu-append-item.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>menu</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxMenu"><type>ThunarxMenu</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="thunarx-menu-get-items" role="function">
+<title>thunarx_menu_get_items&#160;()</title>
+<indexterm zone="thunarx-menu-get-items"><primary>thunarx_menu_get_items</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+thunarx_menu_get_items (<parameter><link linkend="ThunarxMenu"><type>ThunarxMenu</type></link> *menu</parameter>);</programlisting>
+<refsect3 id="thunarx-menu-get-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>menu</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxMenu"><type>ThunarxMenu</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-menu-get-items.returns" role="returns">
+<title>Returns</title>
+<para>the provided <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> list. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> ThunarxMenuItem][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="ThunarxMenu.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="ThunarxMenu-struct" role="struct">
+<title>struct ThunarxMenu</title>
+<indexterm zone="ThunarxMenu-struct"><primary>ThunarxMenu</primary></indexterm>
+<programlisting language="C">struct ThunarxMenu;</programlisting>
+</refsect2>
+
+</refsect1>
+
+</refentry>

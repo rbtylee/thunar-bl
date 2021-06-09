@@ -1,0 +1,185 @@
+
+<refentry id="thunarx-Variables-and-functions-to-check-the-library-version">
+<refmeta>
+<refentrytitle role="top_of_page" id="thunarx-Variables-and-functions-to-check-the-library-version.top_of_page">Variables and functions to check the library version</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>THUNARX Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Variables and functions to check the library version</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsect1 id="thunarx-Variables-and-functions-to-check-the-library-version.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
+<tbody>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-check-version">thunarx_check_version</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="THUNARX-CHECK-VERSION:CAPS">THUNARX_CHECK_VERSION</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="thunarx-Variables-and-functions-to-check-the-library-version.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
+<tbody>
+<row><entry role="variable_type">extern const guint </entry><entry role="function_name"><link linkend="thunarx-major-version">thunarx_major_version</link></entry></row>
+<row><entry role="variable_type">extern const guint </entry><entry role="function_name"><link linkend="thunarx-minor-version">thunarx_minor_version</link></entry></row>
+<row><entry role="variable_type">extern const guint </entry><entry role="function_name"><link linkend="thunarx-micro-version">thunarx_micro_version</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="THUNARX-MAJOR-VERSION:CAPS">THUNARX_MAJOR_VERSION</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="THUNARX-MINOR-VERSION:CAPS">THUNARX_MINOR_VERSION</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="THUNARX-MICRO-VERSION:CAPS">THUNARX_MICRO_VERSION</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="thunarx-Variables-and-functions-to-check-the-library-version.includes"><title>Includes</title><synopsis>#include &lt;thunarx/thunarx.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="thunarx-Variables-and-functions-to-check-the-library-version.description" role="desc">
+<title role="desc.title">Description</title>
+
+</refsect1>
+<refsect1 id="thunarx-Variables-and-functions-to-check-the-library-version.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="thunarx-check-version" role="function">
+<title>thunarx_check_version&#160;()</title>
+<indexterm zone="thunarx-check-version"><primary>thunarx_check_version</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+thunarx_check_version (<parameter><link linkend="guint"><type>guint</type></link> required_major</parameter>,
+                       <parameter><link linkend="guint"><type>guint</type></link> required_minor</parameter>,
+                       <parameter><link linkend="guint"><type>guint</type></link> required_micro</parameter>);</programlisting>
+<para>Checks that the <systemitem class="library">thunarx</systemitem> library
+in use is compatible with the given version. Generally you would pass in
+the constants <link linkend="THUNARX-MAJOR-VERSION:CAPS"><type>THUNARX_MAJOR_VERSION</type></link>, <link linkend="THUNARX-MINOR-VERSION:CAPS"><type>THUNARX_MINOR_VERSION</type></link> and
+<link linkend="THUNARX-VERSION-MICRO:CAPS"><type>THUNARX_VERSION_MICRO</type></link> as the three arguments to this function; that produces
+a check that the library in use is compatible with the version of</para>
+<systemitem class="library">thunarx</systemitem> the extension was
+<para>compiled against.</para>
+<para>This function should be called by extensions in the
+<link linkend="thunar-extension-initialize"><function>thunar_extension_initialize()</function></link> method to verify that the <systemitem
+class="library">thunarx</systemitem> library used by file manager is
+compatible with the version the extension was compiled with.</para>
+<example>
+<title>Checking the runtime version of the Thunar Extension library</title>
+<programlisting>
+const gchar *mismatch;
+mismatch = thunarx_check_version (THUNARX_VERSION_MAJOR,
+                                  THUNARX_VERSION_MINOR,
+                                  THUNARX_VERSION_MICRO);
+if (G_UNLIKELY (mismatch != NULL))
+  g_error ("Version mismatch: %<!---->s", mismatch);
+</programlisting>
+</example>
+<refsect3 id="thunarx-check-version.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>required_major</para></entry>
+<entry role="parameter_description"><para>the required major version.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>required_minor</para></entry>
+<entry role="parameter_description"><para>the required minor version.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>required_micro</para></entry>
+<entry role="parameter_description"><para>the required micro version.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-check-version.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the library is compatible with the given version,
+or a string describing the version mismatch. The returned
+string is owned by the library and must not be freed or
+modified by the caller.</para>
+</refsect3></refsect2>
+<refsect2 id="THUNARX-CHECK-VERSION:CAPS" role="macro">
+<title>THUNARX_CHECK_VERSION()</title>
+<indexterm zone="THUNARX-CHECK-VERSION:CAPS"><primary>THUNARX_CHECK_VERSION</primary></indexterm>
+<programlisting language="C">#define             THUNARX_CHECK_VERSION(major,minor,micro)</programlisting>
+</refsect2>
+
+</refsect1>
+<refsect1 id="thunarx-Variables-and-functions-to-check-the-library-version.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="thunarx-major-version" role="variable">
+<title>thunarx_major_version</title>
+<indexterm zone="thunarx-major-version"><primary>thunarx_major_version</primary></indexterm>
+<programlisting language="C">extern const guint thunarx_major_version;
+</programlisting>
+<para>The major version number of the</para>
+<systemitem class="library">thunarx</systemitem> library (e.g. in
+<para>version 0.5.1 this is 0).</para>
+<para>This variable is in the library, so represents the</para>
+<systemitem class="library">thunarx</systemitem> library you have
+<para>linked against. Contrast with the <link linkend="THUNARX-MAJOR-VERSION:CAPS"><type>THUNARX_MAJOR_VERSION</type></link> macro, which
+represents the major version of the</para>
+<systemitem class="library">thunarx</systemitem> headers you have
+<para>included.</para>
+</refsect2>
+<refsect2 id="thunarx-minor-version" role="variable">
+<title>thunarx_minor_version</title>
+<indexterm zone="thunarx-minor-version"><primary>thunarx_minor_version</primary></indexterm>
+<programlisting language="C">extern const guint thunarx_minor_version;
+</programlisting>
+<para>The minor version number of the</para>
+<systemitem class="library">thunarx</systemitem> library (e.g. in
+<para>version 0.5.1 this is 5).</para>
+<para>This variable is in the library, so represents the</para>
+<systemitem class="library">thunarx</systemitem> library you have
+<para>linked against. Contrast with the <link linkend="THUNARX-MINOR-VERSION:CAPS"><type>THUNARX_MINOR_VERSION</type></link> macro, which
+represents the minor version of the</para>
+<systemitem class="library">thunarx</systemitem> headers you have
+<para>included.</para>
+</refsect2>
+<refsect2 id="thunarx-micro-version" role="variable">
+<title>thunarx_micro_version</title>
+<indexterm zone="thunarx-micro-version"><primary>thunarx_micro_version</primary></indexterm>
+<programlisting language="C">extern const guint thunarx_micro_version;
+</programlisting>
+<para>The micro version number of the</para>
+<systemitem class="library">thunarx</systemitem> library (e.g. in
+<para>version 0.5.1 this is 1).</para>
+<para>This variable is in the library, so represents the</para>
+<systemitem class="library">thunarx</systemitem> library you have
+<para>linked against. Contrast with the <link linkend="THUNARX-MICRO-VERSION:CAPS"><type>THUNARX_MICRO_VERSION</type></link> macro, which
+represents the micro version of the</para>
+<systemitem class="library">thunarx</systemitem> headers you have
+<para>included.</para>
+</refsect2>
+<refsect2 id="THUNARX-MAJOR-VERSION:CAPS" role="macro">
+<title>THUNARX_MAJOR_VERSION</title>
+<indexterm zone="THUNARX-MAJOR-VERSION:CAPS"><primary>THUNARX_MAJOR_VERSION</primary></indexterm>
+<programlisting language="C">#define THUNARX_MAJOR_VERSION 1
+</programlisting>
+</refsect2>
+<refsect2 id="THUNARX-MINOR-VERSION:CAPS" role="macro">
+<title>THUNARX_MINOR_VERSION</title>
+<indexterm zone="THUNARX-MINOR-VERSION:CAPS"><primary>THUNARX_MINOR_VERSION</primary></indexterm>
+<programlisting language="C">#define THUNARX_MINOR_VERSION 8
+</programlisting>
+</refsect2>
+<refsect2 id="THUNARX-MICRO-VERSION:CAPS" role="macro">
+<title>THUNARX_MICRO_VERSION</title>
+<indexterm zone="THUNARX-MICRO-VERSION:CAPS"><primary>THUNARX_MICRO_VERSION</primary></indexterm>
+<programlisting language="C">#define THUNARX_MICRO_VERSION 14
+</programlisting>
+</refsect2>
+
+</refsect1>
+
+</refentry>

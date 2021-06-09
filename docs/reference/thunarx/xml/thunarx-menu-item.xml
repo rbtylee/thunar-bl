@@ -1,0 +1,318 @@
+
+<refentry id="ThunarxMenuItem">
+<refmeta>
+<refentrytitle role="top_of_page" id="ThunarxMenuItem.top_of_page">ThunarxMenuItem</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>THUNARX Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>ThunarxMenuItem</refname>
+<refpurpose>The base class for menu items added to the context menus</refpurpose>
+</refnamediv>
+
+<refsect1 id="ThunarxMenuItem.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="ThunarxMenuItem"><returnvalue>ThunarxMenuItem</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-menu-item-new">thunarx_menu_item_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-menu-item-activate">thunarx_menu_item_activate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-menu-item-get-sensitive">thunarx_menu_item_get_sensitive</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-menu-item-set-sensitive">thunarx_menu_item_set_sensitive</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-menu-item-set-menu">thunarx_menu_item_set_menu</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-menu-item-list-free">thunarx_menu_item_list_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxMenuItem.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="ThunarxMenuItem--icon">icon</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="ThunarxMenuItem--label">label</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="ThunarxMenu"><type>ThunarxMenu</type></link>&#160;*</entry><entry role="property_name"><link linkend="ThunarxMenuItem--menu">menu</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="ThunarxMenuItem--name">name</link></entry><entry role="property_flags">Read / Write / Construct&#160;Only</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="ThunarxMenuItem--priority">priority</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="ThunarxMenuItem--sensitive">sensitive</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="ThunarxMenuItem--tooltip">tooltip</link></entry><entry role="property_flags">Read / Write</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxMenuItem.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signal_proto_type" colwidth="150px"/>
+<colspec colname="signal_proto_name" colwidth="300px"/>
+<colspec colname="signal_proto_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="ThunarxMenuItem-activate">activate</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxMenuItem.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="ThunarxMenuItem-struct">ThunarxMenuItem</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxMenuItem.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> ThunarxMenuItem
+</screen>
+</refsect1>
+
+<refsect1 id="ThunarxMenuItem.includes"><title>Includes</title><synopsis>#include &lt;thunarx/thunarx.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="ThunarxMenuItem.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The class for menu items that can be added to Thunar's context menus
+by extensions implementing the <link linkend="ThunarxMenuProvider"><type>ThunarxMenuProvider</type></link>, <link linkend="ThunarxPreferencesProvider"><type>ThunarxPreferencesProvider</type></link>
+or <link linkend="ThunarxRenamerProvider"><type>ThunarxRenamerProvider</type></link> interfaces. The items returned by extensions from
+*_get_menu_items() methods are instances of this class or a derived class.</para>
+
+</refsect1>
+<refsect1 id="ThunarxMenuItem.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="thunarx-menu-item-new" role="function">
+<title>thunarx_menu_item_new&#160;()</title>
+<indexterm zone="thunarx-menu-item-new"><primary>thunarx_menu_item_new</primary></indexterm>
+<programlisting language="C"><link linkend="ThunarxMenuItem"><returnvalue>ThunarxMenuItem</returnvalue></link>&#160;*
+thunarx_menu_item_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *label</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *tooltip</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *icon</parameter>);</programlisting>
+<para>Creates a new menu item that can be added to the toolbar or to a contextual menu.</para>
+<refsect3 id="thunarx-menu-item-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>identifier for the menu item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>label</para></entry>
+<entry role="parameter_description"><para>user-visible label of the menu item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>tooltip</para></entry>
+<entry role="parameter_description"><para>tooltip of the menu item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>icon</para></entry>
+<entry role="parameter_description"><para>textual representation of the icon to display in the menu
+item, as returned by <link linkend="g-icon-to-string"><function>g_icon_to_string()</function></link>. A path or icon name
+are valid representations too.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-menu-item-new.returns" role="returns">
+<title>Returns</title>
+<para> a newly created <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-menu-item-activate" role="function">
+<title>thunarx_menu_item_activate&#160;()</title>
+<indexterm zone="thunarx-menu-item-activate"><primary>thunarx_menu_item_activate</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+thunarx_menu_item_activate (<parameter><link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> *item</parameter>);</programlisting>
+<para>Emits the activate signal.</para>
+<refsect3 id="thunarx-menu-item-activate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>pointer to a <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="thunarx-menu-item-get-sensitive" role="function">
+<title>thunarx_menu_item_get_sensitive&#160;()</title>
+<indexterm zone="thunarx-menu-item-get-sensitive"><primary>thunarx_menu_item_get_sensitive</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+thunarx_menu_item_get_sensitive (<parameter><link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> *item</parameter>);</programlisting>
+<para>Returns whether the menu item is sensitive.</para>
+<refsect3 id="thunarx-menu-item-get-sensitive.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>pointer to a <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="thunarx-menu-item-set-sensitive" role="function">
+<title>thunarx_menu_item_set_sensitive&#160;()</title>
+<indexterm zone="thunarx-menu-item-set-sensitive"><primary>thunarx_menu_item_set_sensitive</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+thunarx_menu_item_set_sensitive (<parameter><link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> *item</parameter>,
+                                 <parameter><link linkend="gboolean"><type>gboolean</type></link> sensitive</parameter>);</programlisting>
+<para>Sets the ::sensitive property of the menu item to <parameter>sensitive</parameter>
+.</para>
+<refsect3 id="thunarx-menu-item-set-sensitive.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>pointer to a <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>sensitive</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to make the menu item sensitive</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="thunarx-menu-item-set-menu" role="function">
+<title>thunarx_menu_item_set_menu&#160;()</title>
+<indexterm zone="thunarx-menu-item-set-menu"><primary>thunarx_menu_item_set_menu</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+thunarx_menu_item_set_menu (<parameter><link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> *item</parameter>,
+                            <parameter><link linkend="ThunarxMenu"><type>ThunarxMenu</type></link> *menu</parameter>);</programlisting>
+<para>Attaches <parameter>menu</parameter>
+ to menu item.</para>
+<refsect3 id="thunarx-menu-item-set-menu.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>pointer to a <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>menu</para></entry>
+<entry role="parameter_description"><para>pointer to a <link linkend="ThunarxMenu"><type>ThunarxMenu</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="thunarx-menu-item-list-free" role="function">
+<title>thunarx_menu_item_list_free&#160;()</title>
+<indexterm zone="thunarx-menu-item-list-free"><primary>thunarx_menu_item_list_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+thunarx_menu_item_list_free (<parameter><link linkend="GList"><type>GList</type></link> *items</parameter>);</programlisting>
+<refsect3 id="thunarx-menu-item-list-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>items</para></entry>
+<entry role="parameter_description"><para>a list of <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>element-type</acronym> ThunarxMenuItem]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="ThunarxMenuItem.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="ThunarxMenuItem-struct" role="struct">
+<title>struct ThunarxMenuItem</title>
+<indexterm zone="ThunarxMenuItem-struct"><primary>ThunarxMenuItem</primary></indexterm>
+<programlisting language="C">struct ThunarxMenuItem;</programlisting>
+</refsect2>
+
+</refsect1>
+<refsect1 id="ThunarxMenuItem.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="ThunarxMenuItem--icon" role="property"><title>The <literal>“icon”</literal> property</title>
+<indexterm zone="ThunarxMenuItem--icon"><primary>ThunarxMenuItem:icon</primary></indexterm>
+<programlisting>  “icon”                     <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>Textual representation of the icon (as returned by g_icon_to_string()) to display in the menu item.</para><para>Owner: ThunarxMenuItem</para>
+<para>Flags: Read / Write</para>
+<para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="ThunarxMenuItem--label" role="property"><title>The <literal>“label”</literal> property</title>
+<indexterm zone="ThunarxMenuItem--label"><primary>ThunarxMenuItem:label</primary></indexterm>
+<programlisting>  “label”                    <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>Label to display to the user.</para><para>Owner: ThunarxMenuItem</para>
+<para>Flags: Read / Write</para>
+<para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="ThunarxMenuItem--menu" role="property"><title>The <literal>“menu”</literal> property</title>
+<indexterm zone="ThunarxMenuItem--menu"><primary>ThunarxMenuItem:menu</primary></indexterm>
+<programlisting>  “menu”                     <link linkend="ThunarxMenu"><type>ThunarxMenu</type></link>&#160;*</programlisting>
+<para>The menu belonging to this item. May be null.</para><para>Owner: ThunarxMenuItem</para>
+<para>Flags: Read / Write</para>
+</refsect2>
+<refsect2 id="ThunarxMenuItem--name" role="property"><title>The <literal>“name”</literal> property</title>
+<indexterm zone="ThunarxMenuItem--name"><primary>ThunarxMenuItem:name</primary></indexterm>
+<programlisting>  “name”                     <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>Name of the item.</para><para>Owner: ThunarxMenuItem</para>
+<para>Flags: Read / Write / Construct&#160;Only</para>
+<para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="ThunarxMenuItem--priority" role="property"><title>The <literal>“priority”</literal> property</title>
+<indexterm zone="ThunarxMenuItem--priority"><primary>ThunarxMenuItem:priority</primary></indexterm>
+<programlisting>  “priority”                 <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Show priority text in toolbars.</para><para>Owner: ThunarxMenuItem</para>
+<para>Flags: Read / Write</para>
+<para>Default value: TRUE</para>
+</refsect2>
+<refsect2 id="ThunarxMenuItem--sensitive" role="property"><title>The <literal>“sensitive”</literal> property</title>
+<indexterm zone="ThunarxMenuItem--sensitive"><primary>ThunarxMenuItem:sensitive</primary></indexterm>
+<programlisting>  “sensitive”                <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether the menu item is sensitive.</para><para>Owner: ThunarxMenuItem</para>
+<para>Flags: Read / Write</para>
+<para>Default value: TRUE</para>
+</refsect2>
+<refsect2 id="ThunarxMenuItem--tooltip" role="property"><title>The <literal>“tooltip”</literal> property</title>
+<indexterm zone="ThunarxMenuItem--tooltip"><primary>ThunarxMenuItem:tooltip</primary></indexterm>
+<programlisting>  “tooltip”                  <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>Tooltip for the menu item.</para><para>Owner: ThunarxMenuItem</para>
+<para>Flags: Read / Write</para>
+<para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="ThunarxMenuItem.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="ThunarxMenuItem-activate" role="signal"><title>The <literal>“activate”</literal> signal</title>
+<indexterm zone="ThunarxMenuItem-activate"><primary>ThunarxMenuItem::activate</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> *thunarxmenuitem,
+               <link linkend="gpointer"><type>gpointer</type></link>         user_data)</programlisting>
+<para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2>
+</refsect1>
+
+</refentry>

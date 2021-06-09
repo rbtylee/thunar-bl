@@ -1,0 +1,689 @@
+
+<refentry id="ThunarxFileInfo">
+<refmeta>
+<refentrytitle role="top_of_page" id="ThunarxFileInfo.top_of_page">ThunarxFileInfo</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>THUNARX Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>ThunarxFileInfo</refname>
+<refpurpose>Abstraction of a file handled within the file manager</refpurpose>
+</refnamediv>
+
+<refsect1 id="ThunarxFileInfo.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-file-info-get-name">thunarx_file_info_get_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-file-info-get-uri">thunarx_file_info_get_uri</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-file-info-get-parent-uri">thunarx_file_info_get_parent_uri</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-file-info-get-uri-scheme">thunarx_file_info_get_uri_scheme</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-file-info-get-mime-type">thunarx_file_info_get_mime_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-file-info-has-mime-type">thunarx_file_info_has_mime_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-file-info-is-directory">thunarx_file_info_is_directory</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GFileInfo"><returnvalue>GFileInfo</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-file-info-get-file-info">thunarx_file_info_get_file_info</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GFileInfo"><returnvalue>GFileInfo</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-file-info-get-filesystem-info">thunarx_file_info_get_filesystem_info</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GFile"><returnvalue>GFile</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-file-info-get-location">thunarx_file_info_get_location</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-file-info-changed">thunarx_file_info_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-file-info-renamed">thunarx_file_info_renamed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-file-info-list-copy">thunarx_file_info_list_copy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="thunarx-file-info-list-free">thunarx_file_info_list_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxFileInfo.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signal_proto_type" colwidth="150px"/>
+<colspec colname="signal_proto_name" colwidth="300px"/>
+<colspec colname="signal_proto_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="ThunarxFileInfo-changed">changed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-FIRST:CAPS">Run First</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="ThunarxFileInfo-renamed">renamed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-FIRST:CAPS">Run First</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxFileInfo.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="ThunarxFileInfoIface">ThunarxFileInfoIface</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="ThunarxFileInfo-struct">ThunarxFileInfo</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="THUNARX-TYPE-FILE-INFO-LIST:CAPS">THUNARX_TYPE_FILE_INFO_LIST</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxFileInfo.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> ThunarxFileInfo
+</screen>
+</refsect1>
+<refsect1 id="ThunarxFileInfo.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+ThunarxFileInfo requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+
+<refsect1 id="ThunarxFileInfo.includes"><title>Includes</title><synopsis>#include &lt;thunarx/thunarx.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="ThunarxFileInfo.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <interface>ThunarxFileInfo</interface> interface provides extensions with
+a way to access information about a file handled within the file manager.</para>
+
+</refsect1>
+<refsect1 id="ThunarxFileInfo.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="thunarx-file-info-get-name" role="function">
+<title>thunarx_file_info_get_name&#160;()</title>
+<indexterm zone="thunarx-file-info-get-name"><primary>thunarx_file_info_get_name</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+thunarx_file_info_get_name (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Returns the real name of the file represented
+by <parameter>file_info</parameter>
+ in the local file system encoding.
+You can use <link linkend="g-filename-display-name"><function>g_filename_display_name()</function></link> or similar
+functions to generate an UTF-8 version of the
+name, which is suitable for use in the user
+interface.</para>
+<para>The caller is responsible to free the returned
+string using <link linkend="g-free"><function>g_free()</function></link> when no longer needed.</para>
+<refsect3 id="thunarx-file-info-get-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-get-name.returns" role="returns">
+<title>Returns</title>
+<para> the real name of the file represented
+by <parameter>file_info</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-get-uri" role="function">
+<title>thunarx_file_info_get_uri&#160;()</title>
+<indexterm zone="thunarx-file-info-get-uri"><primary>thunarx_file_info_get_uri</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+thunarx_file_info_get_uri (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Returns the escaped, fully qualified URI
+of the file object represented by <parameter>file_info</parameter>
+.
+You may use <link linkend="g-filename-from-uri"><function>g_filename_from_uri()</function></link> and similar
+functions to work with the returned URI.</para>
+<para>The caller is responsible to free the returned
+string using <link linkend="g-free"><function>g_free()</function></link> when no longer needed.</para>
+<refsect3 id="thunarx-file-info-get-uri.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-get-uri.returns" role="returns">
+<title>Returns</title>
+<para> the fully qualified URI of <parameter>file_info</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-get-parent-uri" role="function">
+<title>thunarx_file_info_get_parent_uri&#160;()</title>
+<indexterm zone="thunarx-file-info-get-parent-uri"><primary>thunarx_file_info_get_parent_uri</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+thunarx_file_info_get_parent_uri (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Returns the URI to the parent file of
+<parameter>file_info</parameter>
+ or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>file_info</parameter>
+ has
+no parent. Note that the parent URI
+may be of a different type than the
+URI of <parameter>file_info</parameter>
+. For example, the
+parent of "file:///" is "computer:///".</para>
+<para>The caller is responsible to free the
+returned string using <link linkend="g-free"><function>g_free()</function></link> when no
+longer needed.</para>
+<refsect3 id="thunarx-file-info-get-parent-uri.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-get-parent-uri.returns" role="returns">
+<title>Returns</title>
+<para> the parent URI for <parameter>file_info</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-get-uri-scheme" role="function">
+<title>thunarx_file_info_get_uri_scheme&#160;()</title>
+<indexterm zone="thunarx-file-info-get-uri-scheme"><primary>thunarx_file_info_get_uri_scheme</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+thunarx_file_info_get_uri_scheme (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Returns the URI scheme of the file represented
+by <parameter>file_info</parameter>
+. E.g. if <parameter>file_info</parameter>
+ refers to the
+file "file:///usr/home", the return value will
+be "file".</para>
+<para>The caller is responsible to free the returned
+string using <link linkend="g-free"><function>g_free()</function></link> when no longer needed.</para>
+<refsect3 id="thunarx-file-info-get-uri-scheme.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-get-uri-scheme.returns" role="returns">
+<title>Returns</title>
+<para> the URI scheme for <parameter>file_info</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-get-mime-type" role="function">
+<title>thunarx_file_info_get_mime_type&#160;()</title>
+<indexterm zone="thunarx-file-info-get-mime-type"><primary>thunarx_file_info_get_mime_type</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+thunarx_file_info_get_mime_type (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Returns the MIME-type of the file represented by
+<parameter>file_info</parameter>
+ or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no MIME-type is known for
+<parameter>file_info</parameter>
+.</para>
+<para>The caller is responsible to free the returned
+string using <link linkend="g-free"><function>g_free()</function></link> when no longer needed.</para>
+<refsect3 id="thunarx-file-info-get-mime-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-get-mime-type.returns" role="returns">
+<title>Returns</title>
+<para> the MIME-type for <parameter>file_info</parameter>
+or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-has-mime-type" role="function">
+<title>thunarx_file_info_has_mime_type&#160;()</title>
+<indexterm zone="thunarx-file-info-has-mime-type"><primary>thunarx_file_info_has_mime_type</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+thunarx_file_info_has_mime_type (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *mime_type</parameter>);</programlisting>
+<para>Checks whether <parameter>file_info</parameter>
+ is of the given <parameter>mime_type</parameter>
+
+or whether the MIME-type of <parameter>file_info</parameter>
+ is a subclass
+of <parameter>mime_type</parameter>
+.</para>
+<para>This is the preferred way for most extensions to check
+whether they support a given file or not, and you should
+consider using this method rather than
+<link linkend="thunarx-file-info-get-mime-type"><function>thunarx_file_info_get_mime_type()</function></link>. A simple example would
+be a menu extension that performs a certain action on
+text files. In this case you want to check whether a given
+<link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> refers to any kind of text file, not only
+to "text/plain" (e.g. this also includes "text/xml" and
+"application/x-desktop").</para>
+<para>But you should be aware that this method may take some
+time to test whether <parameter>mime_type</parameter>
+ is valid for <parameter>file_info</parameter>
+,
+so don't call it too often.</para>
+<refsect3 id="thunarx-file-info-has-mime-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mime_type</para></entry>
+<entry role="parameter_description"><para>a MIME-type (e.g. "text/plain").</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-has-mime-type.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>mime_type</parameter>
+is valid for <parameter>file_info</parameter>
+,
+else <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-is-directory" role="function">
+<title>thunarx_file_info_is_directory&#160;()</title>
+<indexterm zone="thunarx-file-info-is-directory"><primary>thunarx_file_info_is_directory</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+thunarx_file_info_is_directory (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Checks whether <parameter>file_info</parameter>
+ refers to a directory.</para>
+<refsect3 id="thunarx-file-info-is-directory.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-is-directory.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>file_info</parameter>
+is a directory.</para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-get-file-info" role="function">
+<title>thunarx_file_info_get_file_info&#160;()</title>
+<indexterm zone="thunarx-file-info-get-file-info"><primary>thunarx_file_info_get_file_info</primary></indexterm>
+<programlisting language="C"><link linkend="GFileInfo"><returnvalue>GFileInfo</returnvalue></link>&#160;*
+thunarx_file_info_get_file_info (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Returns the <link linkend="GFileInfo"><type>GFileInfo</type></link> associated with <parameter>file_info</parameter>
+,
+which includes additional information about the <parameter>file_info</parameter>
+
+as queried from GIO earlier. The caller is responsible to free the
+returned <link linkend="GFileInfo"><type>GFileInfo</type></link> object using <link linkend="g-object-unref"><function>g_object_unref()</function></link> when
+no longer needed.</para>
+<refsect3 id="thunarx-file-info-get-file-info.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-get-file-info.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GFileInfo"><type>GFileInfo</type></link> object associated with <parameter>file_info</parameter>
+,
+which MUST be freed using <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-get-filesystem-info" role="function">
+<title>thunarx_file_info_get_filesystem_info&#160;()</title>
+<indexterm zone="thunarx-file-info-get-filesystem-info"><primary>thunarx_file_info_get_filesystem_info</primary></indexterm>
+<programlisting language="C"><link linkend="GFileInfo"><returnvalue>GFileInfo</returnvalue></link>&#160;*
+thunarx_file_info_get_filesystem_info (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Returns the <link linkend="GFileInfo"><type>GFileInfo</type></link> which includes additional information about
+the filesystem <parameter>file_info</parameter>
+ resides on. The caller is responsible to
+free the returned <link linkend="GFileInfo"><type>GFileInfo</type></link> object using <link linkend="g-object-unref"><function>g_object_unref()</function></link> when
+no longer needed.</para>
+<refsect3 id="thunarx-file-info-get-filesystem-info.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-get-filesystem-info.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GFileInfo"><type>GFileInfo</type></link> containing information about the
+filesystem of <parameter>file_info</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no filesystem information is
+available. It MUST be released using <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-get-location" role="function">
+<title>thunarx_file_info_get_location&#160;()</title>
+<indexterm zone="thunarx-file-info-get-location"><primary>thunarx_file_info_get_location</primary></indexterm>
+<programlisting language="C"><link linkend="GFile"><returnvalue>GFile</returnvalue></link>&#160;*
+thunarx_file_info_get_location (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Returns the <link linkend="GFile"><type>GFile</type></link> <parameter>file_info</parameter>
+ points to. The <link linkend="GFile"><type>GFile</type></link> is a more
+powerful tool than just the URI or the path. The caller
+is responsible to release the returned <link linkend="GFile"><type>GFile</type></link> using <link linkend="g-object-unref"><function>g_object_unref()</function></link>
+when no longer needed.</para>
+<refsect3 id="thunarx-file-info-get-location.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-get-location.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GFile"><type>GFile</type></link> to which <parameter>file_info</parameter>
+points. It MUST be
+released using <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-changed" role="function">
+<title>thunarx_file_info_changed&#160;()</title>
+<indexterm zone="thunarx-file-info-changed"><primary>thunarx_file_info_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+thunarx_file_info_changed (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Emits the ::changed signal on <parameter>file_info</parameter>
+. This method should not
+be invoked by Thunar plugins, instead the file manager itself
+will use this method to emit ::changed whenever it notices a
+change on <parameter>file_info</parameter>
+.</para>
+<refsect3 id="thunarx-file-info-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-renamed" role="function">
+<title>thunarx_file_info_renamed&#160;()</title>
+<indexterm zone="thunarx-file-info-renamed"><primary>thunarx_file_info_renamed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+thunarx_file_info_renamed (<parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Emits the ::renamed signal on <parameter>file_info</parameter>
+. This method should
+not be invoked by Thunar plugins, instead the file manager
+will emit this signal whenever the user renamed the <parameter>file_info</parameter>
+.</para>
+<para>The plugins should instead connect to the ::renamed signal
+and update it's internal state and it's user interface
+after the file manager renamed a file.</para>
+<refsect3 id="thunarx-file-info-renamed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-list-copy" role="function">
+<title>thunarx_file_info_list_copy&#160;()</title>
+<indexterm zone="thunarx-file-info-list-copy"><primary>thunarx_file_info_list_copy</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+thunarx_file_info_list_copy (<parameter><link linkend="GList"><type>GList</type></link> *file_infos</parameter>);</programlisting>
+<para>Does a deep copy of <parameter>file_infos</parameter>
+ and returns the
+new list.</para>
+<refsect3 id="thunarx-file-info-list-copy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_infos</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GList"><type>GList</type></link> of <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link><!---->s. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>element-type</acronym> ThunarxFileInfo]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-file-info-list-copy.returns" role="returns">
+<title>Returns</title>
+<para>a copy of <parameter>file_infos</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> ThunarxFileInfo]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-file-info-list-free" role="function">
+<title>thunarx_file_info_list_free&#160;()</title>
+<indexterm zone="thunarx-file-info-list-free"><primary>thunarx_file_info_list_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+thunarx_file_info_list_free (<parameter><link linkend="GList"><type>GList</type></link> *file_infos</parameter>);</programlisting>
+<para>Frees the resources allocated for the <parameter>file_infos</parameter>
+
+list and decreases the reference count on the
+<link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link><!---->s contained within.</para>
+<refsect3 id="thunarx-file-info-list-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_infos</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GList"><type>GList</type></link> of <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link><!---->s. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>element-type</acronym> ThunarxFileInfo]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="ThunarxFileInfo.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="ThunarxFileInfoIface" role="struct">
+<title>struct ThunarxFileInfoIface</title>
+<indexterm zone="ThunarxFileInfoIface"><primary>ThunarxFileInfoIface</primary></indexterm>
+<programlisting language="C">struct ThunarxFileInfoIface {
+  /* virtual methods */
+  gchar     *(*get_name)            (ThunarxFileInfo *file_info);
+
+  gchar     *(*get_uri)             (ThunarxFileInfo *file_info);
+  gchar     *(*get_parent_uri)      (ThunarxFileInfo *file_info);
+  gchar     *(*get_uri_scheme)      (ThunarxFileInfo *file_info);
+
+  gchar     *(*get_mime_type)       (ThunarxFileInfo *file_info);
+  gboolean   (*has_mime_type)       (ThunarxFileInfo *file_info,
+                                     const gchar     *mime_type);
+
+  gboolean   (*is_directory)        (ThunarxFileInfo *file_info);
+
+  GFileInfo *(*get_file_info)       (ThunarxFileInfo *file_info);
+  GFileInfo *(*get_filesystem_info) (ThunarxFileInfo *file_info);
+  GFile     *(*get_location)        (ThunarxFileInfo *file_info);
+
+  /* signals */
+  void (*changed) (ThunarxFileInfo *file_info);
+  void (*renamed) (ThunarxFileInfo *file_info);
+};
+</programlisting>
+<para>Interface with virtual methods implemented by the file manager and accessible
+from the extensions.</para>
+<refsect3 id="ThunarxFileInfoIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.get-name">get_name</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-file-info-get-name"><function>thunarx_file_info_get_name()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.get-uri">get_uri</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-file-info-get-uri"><function>thunarx_file_info_get_uri()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.get-parent-uri">get_parent_uri</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-file-info-get-parent-uri"><function>thunarx_file_info_get_parent_uri()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.get-uri-scheme">get_uri_scheme</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-file-info-get-uri-scheme"><function>thunarx_file_info_get_uri_scheme()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.get-mime-type">get_mime_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-file-info-get-mime-type"><function>thunarx_file_info_get_mime_type()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.has-mime-type">has_mime_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-file-info-has-mime-type"><function>thunarx_file_info_has_mime_type()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.is-directory">is_directory</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-file-info-is-directory"><function>thunarx_file_info_is_directory()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.get-file-info">get_file_info</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-file-info-get-file-info"><function>thunarx_file_info_get_file_info()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.get-filesystem-info">get_filesystem_info</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-filesystem-info-get-filesystem-info"><function>thunarx_filesystem_info_get_filesystem_info()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.get-location">get_location</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-location-get-location"><function>thunarx_location_get_location()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.changed">changed</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-file-info-changed"><function>thunarx_file_info_changed()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxFileInfoIface.renamed">renamed</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-file-info-renamed"><function>thunarx_file_info_renamed()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="ThunarxFileInfo-struct" role="struct">
+<title>ThunarxFileInfo</title>
+<indexterm zone="ThunarxFileInfo-struct"><primary>ThunarxFileInfo</primary></indexterm>
+<programlisting language="C">typedef struct _ThunarxFileInfo ThunarxFileInfo;</programlisting>
+</refsect2>
+<refsect2 id="THUNARX-TYPE-FILE-INFO-LIST:CAPS" role="macro">
+<title>THUNARX_TYPE_FILE_INFO_LIST</title>
+<indexterm zone="THUNARX-TYPE-FILE-INFO-LIST:CAPS"><primary>THUNARX_TYPE_FILE_INFO_LIST</primary></indexterm>
+<programlisting language="C">#define THUNARX_TYPE_FILE_INFO_LIST (thunarx_file_info_list_get_type ())
+</programlisting>
+</refsect2>
+
+</refsect1>
+<refsect1 id="ThunarxFileInfo.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="ThunarxFileInfo-changed" role="signal"><title>The <literal>“changed”</literal> signal</title>
+<indexterm zone="ThunarxFileInfo-changed"><primary>ThunarxFileInfo::changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info,
+               <link linkend="gpointer"><type>gpointer</type></link>         user_data)</programlisting>
+<para>Emitted whenever the system notices a change to <parameter>file_info</parameter>
+.</para>
+<para>Thunar plugins should use this signal to stay informed about
+changes to a <parameter>file_info</parameter>
+ for which they currently display
+information (i.e. in a <link linkend="ThunarxPropertyPage"><type>ThunarxPropertyPage</type></link>), and update
+it's user interface whenever a change is noticed on <parameter>file_info</parameter>
+.</para>
+<refsect3 id="ThunarxFileInfo-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-FIRST:CAPS">Run First</link></para>
+</refsect2><refsect2 id="ThunarxFileInfo-renamed" role="signal"><title>The <literal>“renamed”</literal> signal</title>
+<indexterm zone="ThunarxFileInfo-renamed"><primary>ThunarxFileInfo::renamed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *file_info,
+               <link linkend="gpointer"><type>gpointer</type></link>         user_data)</programlisting>
+<para>Emitted when the <parameter>file_info</parameter>
+ is renamed to another
+name.</para>
+<para>For example, within Thunar, <link linkend="ThunarFolder"><type>ThunarFolder</type></link> uses this
+signal to reregister it's VFS directory monitor, after
+the corresponding file was renamed.</para>
+<refsect3 id="ThunarxFileInfo-renamed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-FIRST:CAPS">Run First</link></para>
+</refsect2>
+</refsect1>
+
+</refentry>

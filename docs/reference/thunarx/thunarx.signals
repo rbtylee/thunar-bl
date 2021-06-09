@@ -1,0 +1,28 @@
+<SIGNAL>
+<NAME>ThunarxFileInfo::changed</NAME>
+<RETURNS>void</RETURNS>
+<FLAGS>f</FLAGS>
+ThunarxFileInfo *thunarxfileinfo
+</SIGNAL>
+
+<SIGNAL>
+<NAME>ThunarxFileInfo::renamed</NAME>
+<RETURNS>void</RETURNS>
+<FLAGS>f</FLAGS>
+ThunarxFileInfo *thunarxfileinfo
+</SIGNAL>
+
+<SIGNAL>
+<NAME>ThunarxMenuItem::activate</NAME>
+<RETURNS>void</RETURNS>
+<FLAGS>l</FLAGS>
+ThunarxMenuItem *thunarxmenuitem
+</SIGNAL>
+
+<SIGNAL>
+<NAME>ThunarxRenamer::changed</NAME>
+<RETURNS>void</RETURNS>
+<FLAGS>f</FLAGS>
+ThunarxRenamer *thunarxrenamer
+</SIGNAL>
+

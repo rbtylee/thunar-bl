@@ -1,0 +1,317 @@
+
+<refentry id="ThunarxMenuProvider">
+<refmeta>
+<refentrytitle role="top_of_page" id="ThunarxMenuProvider.top_of_page">ThunarxMenuProvider</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>THUNARX Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>ThunarxMenuProvider</refname>
+<refpurpose>The interface to extensions that provide additional menu items</refpurpose>
+</refnamediv>
+
+<refsect1 id="ThunarxMenuProvider.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-menu-provider-get-file-menu-items">thunarx_menu_provider_get_file_menu_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-menu-provider-get-folder-menu-items">thunarx_menu_provider_get_folder_menu_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-menu-provider-get-dnd-menu-items">thunarx_menu_provider_get_dnd_menu_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxMenuProvider.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="ThunarxMenuProviderIface">ThunarxMenuProviderIface</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="ThunarxMenuProvider-struct">ThunarxMenuProvider</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxMenuProvider.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> ThunarxMenuProvider
+</screen>
+</refsect1>
+<refsect1 id="ThunarxMenuProvider.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+ThunarxMenuProvider requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+
+<refsect1 id="ThunarxMenuProvider.includes"><title>Includes</title><synopsis>#include &lt;thunarx/thunarx.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="ThunarxMenuProvider.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <interface>ThunarxMenuProvider</interface> interface is implemented by
+extensions which provide additional menu items that should be displayed in
+the file or folder context menus for certain types of files.</para>
+<para>Extensions that implement this interface should do its best to respond as
+fast as possible to method invokations by the file manager. That said, when
+the file manager calls the <link linkend="thunarx-menu-provider-get-file-menu-items"><function>thunarx_menu_provider_get_file_menu_items()</function></link> or the
+<link linkend="thunarx-menu-provider-get-folder-menu-items"><function>thunarx_menu_provider_get_folder_menu_items()</function></link> method, the implementation in the
+extension should use only the <link linkend="thunarx-file-info-has-mime-type"><function>thunarx_file_info_has_mime_type()</function></link> and
+<link linkend="thunarx-file-info-is-directory"><function>thunarx_file_info_is_directory()</function></link> methods to determine the menu items that should
+be added to the file manager's context menu. Don't perform any complicated I/O
+to determine the menu items list, as that would block the whole file manager process.</para>
+<para>The name of <link linkend="ThunarxMenuItem">ThunarxMenuItem</link>s returned from the
+<link linkend="thunarx-menu-provider-get-file-menu-items"><function>thunarx_menu_provider_get_file_menu_items()</function></link> and <link linkend="thunarx-menu-provider-get-folder-menu-items"><function>thunarx_menu_provider_get_folder_menu_items()</function></link>
+methods must be namespaced with the module to avoid collision with internal file manager
+menu items and menu items provided by other extensions. For example, the menu item provided
+by the <systemitem class="library">ThunarOpenTerminal</systemitem> extension should be
+called <literal>ThunarOpenTerminal::open-terminal</literal>.</para>
+
+</refsect1>
+<refsect1 id="ThunarxMenuProvider.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="thunarx-menu-provider-get-file-menu-items" role="function">
+<title>thunarx_menu_provider_get_file_menu_items&#160;()</title>
+<indexterm zone="thunarx-menu-provider-get-file-menu-items"><primary>thunarx_menu_provider_get_file_menu_items</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+thunarx_menu_provider_get_file_menu_items
+                               (<parameter><link linkend="ThunarxMenuProvider"><type>ThunarxMenuProvider</type></link> *provider</parameter>,
+                                <parameter><link linkend="GtkWidget"><type>GtkWidget</type></link> *window</parameter>,
+                                <parameter><link linkend="GList"><type>GList</type></link> *files</parameter>);</programlisting>
+<para>Returns the list of <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link><!---->s that <parameter>provider</parameter>
+ has to offer for
+<parameter>files</parameter>
+.</para>
+<para>As a special note, this method automatically takes a reference on the
+<parameter>provider</parameter>
+ for every <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> object returned from the real implementation
+of this method in <parameter>provider</parameter>
+. This is to make sure that the extension stays
+in memory for at least the time that the menu items are used. If the extension
+wants to stay in memory for a longer time, it'll need to take care of this
+itself (e.g. by taking an additional reference on the <parameter>provider</parameter>
+ itself,
+that's released at a later time).</para>
+<para>The caller is responsible to free the returned list of menu items using
+something like this when no longer needed:</para>
+<informalexample><programlisting>
+g_list_free_full (list, g_object_unref);
+</programlisting></informalexample>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="thunarx-menu-provider-get-file-menu-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>provider</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxMenuProvider"><type>ThunarxMenuProvider</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>window</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GtkWindow"><type>GtkWindow</type></link> within which the menu items will be used.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>files</para></entry>
+<entry role="parameter_description"><para>the list of <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link><!---->s
+to which the menu items will be applied. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>element-type</acronym> ThunarxFileInfo]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-menu-provider-get-file-menu-items.returns" role="returns">
+<title>Returns</title>
+<para>the list of <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link><!---->s
+that <parameter>provider</parameter>
+has to offer for <parameter>files</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> ThunarxMenuItem]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-menu-provider-get-folder-menu-items" role="function">
+<title>thunarx_menu_provider_get_folder_menu_items&#160;()</title>
+<indexterm zone="thunarx-menu-provider-get-folder-menu-items"><primary>thunarx_menu_provider_get_folder_menu_items</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+thunarx_menu_provider_get_folder_menu_items
+                               (<parameter><link linkend="ThunarxMenuProvider"><type>ThunarxMenuProvider</type></link> *provider</parameter>,
+                                <parameter><link linkend="GtkWidget"><type>GtkWidget</type></link> *window</parameter>,
+                                <parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *folder</parameter>);</programlisting>
+<para>Returns the list of <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link><!---->s that <parameter>provider</parameter>
+ has to offer for
+<parameter>folder</parameter>
+.</para>
+<para>As a special note, this method automatically takes a reference on the
+<parameter>provider</parameter>
+ for every <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> object returned from the real implementation
+of this method in <parameter>provider</parameter>
+. This is to make sure that the extension stays
+in memory for at least the time that the menu items are used. If the extension
+wants to stay in memory for a longer time, it'll need to take care of this
+itself (e.g. by taking an additional reference on the <parameter>provider</parameter>
+ itself,
+that's released at a later time).</para>
+<para>The caller is responsible to free the returned list of menu items using
+something like this when no longer needed:</para>
+<informalexample><programlisting>
+g_list_free_full (list, g_object_unref);
+</programlisting></informalexample>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="thunarx-menu-provider-get-folder-menu-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>provider</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxMenuProvider"><type>ThunarxMenuProvider</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>window</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GtkWindow"><type>GtkWindow</type></link> within which the menu items will be used.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>folder</para></entry>
+<entry role="parameter_description"><para>the folder to which the menu items should will be applied.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-menu-provider-get-folder-menu-items.returns" role="returns">
+<title>Returns</title>
+<para>the list of <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link><!---->s
+that <parameter>provider</parameter>
+has to offer for <parameter>folder</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> ThunarxMenuItem]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="thunarx-menu-provider-get-dnd-menu-items" role="function" condition="since:0.4.1">
+<title>thunarx_menu_provider_get_dnd_menu_items&#160;()</title>
+<indexterm zone="thunarx-menu-provider-get-dnd-menu-items" role="0.4.1"><primary>thunarx_menu_provider_get_dnd_menu_items</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+thunarx_menu_provider_get_dnd_menu_items
+                               (<parameter><link linkend="ThunarxMenuProvider"><type>ThunarxMenuProvider</type></link> *provider</parameter>,
+                                <parameter><link linkend="GtkWidget"><type>GtkWidget</type></link> *window</parameter>,
+                                <parameter><link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> *folder</parameter>,
+                                <parameter><link linkend="GList"><type>GList</type></link> *files</parameter>);</programlisting>
+<para>Returns the list of <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link><!---->s that <parameter>provider</parameter>
+ has to offer for
+dropping the <parameter>files</parameter>
+ into the <parameter>folder</parameter>
+. For example, the thunar-archive-plugin
+provides <guilabel>Extract Here</guilabel> menu items when dropping archive
+files into a folder that is writable by the user.</para>
+<para>As a special note, this method automatically takes a reference on the
+<parameter>provider</parameter>
+ for every <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link> object returned from the real implementation
+of this method in <parameter>provider</parameter>
+. This is to make sure that the extension stays
+in memory for at least the time that the menu items are used. If the extension
+wants to stay in memory for a longer time, it'll need to take care of this
+itself (e.g. by taking an additional reference on the <parameter>provider</parameter>
+ itself,
+that's released at a later time).</para>
+<para>The caller is responsible to free the returned list of menu items using
+something like this when no longer needed:</para>
+<informalexample><programlisting>
+g_list_free_full (list, g_object_unref);
+</programlisting></informalexample>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="thunarx-menu-provider-get-dnd-menu-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>provider</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxMenuProvider"><type>ThunarxMenuProvider</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>window</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GtkWindow"><type>GtkWindow</type></link> within which the menu items will be used.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>folder</para></entry>
+<entry role="parameter_description"><para>the folder into which the <parameter>files</parameter>
+are being dropped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>files</para></entry>
+<entry role="parameter_description"><para>the list of <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link><!---->s
+for the files that are being dropped to <parameter>folder</parameter>
+in <parameter>window</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>element-type</acronym> ThunarxFileInfo]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-menu-provider-get-dnd-menu-items.returns" role="returns">
+<title>Returns</title>
+<para>the list of <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link><!---->s
+that <parameter>provider</parameter>
+has to offer for dropping <parameter>files</parameter>
+to <parameter>folder</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> ThunarxMenuItem]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.4.1">0.4.1</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="ThunarxMenuProvider.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="ThunarxMenuProviderIface" role="struct">
+<title>struct ThunarxMenuProviderIface</title>
+<indexterm zone="ThunarxMenuProviderIface"><primary>ThunarxMenuProviderIface</primary></indexterm>
+<programlisting language="C">struct ThunarxMenuProviderIface {
+  GList *(*get_file_menu_items)    (ThunarxMenuProvider *provider,
+                                    GtkWidget           *window,
+                                    GList               *files);
+
+  GList *(*get_folder_menu_items)  (ThunarxMenuProvider *provider,
+                                    GtkWidget           *window,
+                                    ThunarxFileInfo     *folder);
+
+  GList *(*get_dnd_menu_items)     (ThunarxMenuProvider *provider,
+                                    GtkWidget           *window,
+                                    ThunarxFileInfo     *folder,
+                                    GList               *files);
+};
+</programlisting>
+<para>Interface with virtual methods implemented by extensions that provide
+additional menu items for the file manager's context menus.
+Providers don't need to implement all of the virtual methods listed in
+the interface.</para>
+<refsect3 id="ThunarxMenuProviderIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxMenuProviderIface.get-file-menu-items">get_file_menu_items</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-menu-provider-get-file-menu-items"><function>thunarx_menu_provider_get_file_menu_items()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxMenuProviderIface.get-folder-menu-items">get_folder_menu_items</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-menu-provider-get-folder-menu-items"><function>thunarx_menu_provider_get_folder_menu_items()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxMenuProviderIface.get-dnd-menu-items">get_dnd_menu_items</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-menu-provider-get-dnd-menu-items"><function>thunarx_menu_provider_get_dnd_menu_items()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="ThunarxMenuProvider-struct" role="struct">
+<title>ThunarxMenuProvider</title>
+<indexterm zone="ThunarxMenuProvider-struct"><primary>ThunarxMenuProvider</primary></indexterm>
+<programlisting language="C">typedef struct _ThunarxMenuProvider ThunarxMenuProvider;</programlisting>
+</refsect2>
+
+</refsect1>
+
+</refentry>

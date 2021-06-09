@@ -1,0 +1,7 @@
+ThunarxFileInfo GObject
+ThunarxMenuProvider GObject
+ThunarxPreferencesProvider GObject
+GtkBuildable GObject
+ThunarxPropertyPageProvider GObject
+GtkOrientable GObject
+ThunarxRenamerProvider GObject

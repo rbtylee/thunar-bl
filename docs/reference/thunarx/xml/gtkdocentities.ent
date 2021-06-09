@@ -1,0 +1,7 @@
+<!ENTITY package "thunar">
+<!ENTITY package_bugreport "https://bugzilla.xfce.org/">
+<!ENTITY package_name "thunar">
+<!ENTITY package_string "thunar 1.8.14">
+<!ENTITY package_tarname "thunar">
+<!ENTITY package_url "">
+<!ENTITY package_version "1.8.14">

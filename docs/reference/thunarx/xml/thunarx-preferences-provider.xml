@@ -1,0 +1,167 @@
+
+<refentry id="ThunarxPreferencesProvider">
+<refmeta>
+<refentrytitle role="top_of_page" id="ThunarxPreferencesProvider.top_of_page">ThunarxPreferencesProvider</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>THUNARX Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>ThunarxPreferencesProvider</refname>
+<refpurpose>The interface to extensions that provide preferences</refpurpose>
+</refnamediv>
+
+<refsect1 id="ThunarxPreferencesProvider.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-preferences-provider-get-menu-items">thunarx_preferences_provider_get_menu_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxPreferencesProvider.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="ThunarxPreferencesProviderIface">ThunarxPreferencesProviderIface</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="ThunarxPreferencesProvider-struct">ThunarxPreferencesProvider</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxPreferencesProvider.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> ThunarxPreferencesProvider
+</screen>
+</refsect1>
+<refsect1 id="ThunarxPreferencesProvider.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+ThunarxPreferencesProvider requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+
+<refsect1 id="ThunarxPreferencesProvider.includes"><title>Includes</title><synopsis>#include &lt;thunarx/thunarx.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="ThunarxPreferencesProvider.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The ThunarxPreferencesProvider interface is implemented by extensions that
+want to register additional items in the preferences menu of the file
+manager. In general this should only be done by extensions that are closely
+tied to the file manager (for example, the <literal>thunar-uca</literal> is
+such an extension, while an extension that just adds <guimenuitem>Compress
+file</guimenuitem> and <guimenuitem>Uncompress file</guimenuitem> to the
+context menu of compressed files should not add their own preferences to
+the file manager menu, because it should use desktop-wide settings for
+archive managers instead).</para>
+<para>The name of <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link>s
+returned from the thunarx_preferences_provider_get_menu <link linkend="items"><function>items()</function></link> method must be
+namespaced with the model to avoid collision with internal file manager menu items
+and menu items provided by other extensions. For example, the preferences menu item
+provided by the <literal>thunar-uca</literal> extension is called
+<literal>ThunarUca::manage-menu-items</literal>.</para>
+
+</refsect1>
+<refsect1 id="ThunarxPreferencesProvider.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="thunarx-preferences-provider-get-menu-items" role="function">
+<title>thunarx_preferences_provider_get_menu_items&#160;()</title>
+<indexterm zone="thunarx-preferences-provider-get-menu-items"><primary>thunarx_preferences_provider_get_menu_items</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+thunarx_preferences_provider_get_menu_items
+                               (<parameter><link linkend="ThunarxPreferencesProvider"><type>ThunarxPreferencesProvider</type></link> *provider</parameter>,
+                                <parameter><link linkend="GtkWidget"><type>GtkWidget</type></link> *window</parameter>);</programlisting>
+<para>Returns the list of <link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link><!---->s that <parameter>provider</parameter>
+ has to offer
+as preferences within <parameter>window</parameter>
+. These menu items will usually be added
+to the builtin list of preferences in the "Edit" menu of the file
+manager's <parameter>window</parameter>
+.</para>
+<para>Plugin writers that implement this interface should make sure to
+choose descriptive names and tooltips, and not to crowd the
+"Edit" menu too much. That said, think twice before implementing
+this interface, as too many preference menu items will render the
+file manager useless over time!</para>
+<para>The caller is responsible to free the returned list of menu items using
+something like this when no longer needed:</para>
+<informalexample><programlisting>
+g_list_free_full (list, g_object_unref);
+</programlisting></informalexample>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="thunarx-preferences-provider-get-menu-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>provider</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxPreferencesProvider"><type>ThunarxPreferencesProvider</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>window</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GtkWindow"><type>GtkWindow</type></link> within which the menu items will be used.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-preferences-provider-get-menu-items.returns" role="returns">
+<title>Returns</title>
+<para>the list of
+<link linkend="ThunarxMenuItem"><type>ThunarxMenuItem</type></link><!---->s that <parameter>provider</parameter>
+has to offer as preferences
+within <parameter>window</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> ThunarxMenuItem]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="ThunarxPreferencesProvider.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="ThunarxPreferencesProviderIface" role="struct">
+<title>struct ThunarxPreferencesProviderIface</title>
+<indexterm zone="ThunarxPreferencesProviderIface"><primary>ThunarxPreferencesProviderIface</primary></indexterm>
+<programlisting language="C">struct ThunarxPreferencesProviderIface {
+  GList *(*get_menu_items) (ThunarxPreferencesProvider *provider,
+                            GtkWidget                  *window);
+};
+</programlisting>
+<para>Interface with virtual methods implementation by extensions that
+want to install preferences items in the file managers menu.
+Providers don't need to implement all of the virtual methods listed
+in the interface.</para>
+<refsect3 id="ThunarxPreferencesProviderIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxPreferencesProviderIface.get-menu-items">get_menu_items</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>See <link linkend="thunarx-preferences-provider-get-menu-items"><function>thunarx_preferences_provider_get_menu_items()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="ThunarxPreferencesProvider-struct" role="struct">
+<title>ThunarxPreferencesProvider</title>
+<indexterm zone="ThunarxPreferencesProvider-struct"><primary>ThunarxPreferencesProvider</primary></indexterm>
+<programlisting language="C">typedef struct _ThunarxPreferencesProvider ThunarxPreferencesProvider;</programlisting>
+</refsect2>
+
+</refsect1>
+
+</refentry>

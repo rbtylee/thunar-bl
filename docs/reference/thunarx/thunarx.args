@@ -1,0 +1,120 @@
+<ARG>
+<NAME>ThunarxMenuItem::icon</NAME>
+<TYPE>gchar*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rw</FLAGS>
+<NICK>Icon</NICK>
+<BLURB>Textual representation of the icon (as returned by g_icon_to_string()) to display in the menu item.</BLURB>
+<DEFAULT>NULL</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxMenuItem::label</NAME>
+<TYPE>gchar*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rw</FLAGS>
+<NICK>Label</NICK>
+<BLURB>Label to display to the user.</BLURB>
+<DEFAULT>NULL</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxMenuItem::menu</NAME>
+<TYPE>ThunarxMenu*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rw</FLAGS>
+<NICK>Menu</NICK>
+<BLURB>The menu belonging to this item. May be null.</BLURB>
+<DEFAULT></DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxMenuItem::name</NAME>
+<TYPE>gchar*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rwX</FLAGS>
+<NICK>Name</NICK>
+<BLURB>Name of the item.</BLURB>
+<DEFAULT>NULL</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxMenuItem::priority</NAME>
+<TYPE>gboolean</TYPE>
+<RANGE></RANGE>
+<FLAGS>rw</FLAGS>
+<NICK>Priority</NICK>
+<BLURB>Show priority text in toolbars.</BLURB>
+<DEFAULT>TRUE</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxMenuItem::sensitive</NAME>
+<TYPE>gboolean</TYPE>
+<RANGE></RANGE>
+<FLAGS>rw</FLAGS>
+<NICK>Sensitive</NICK>
+<BLURB>Whether the menu item is sensitive.</BLURB>
+<DEFAULT>TRUE</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxMenuItem::tooltip</NAME>
+<TYPE>gchar*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rw</FLAGS>
+<NICK>Tooltip</NICK>
+<BLURB>Tooltip for the menu item.</BLURB>
+<DEFAULT>NULL</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxPropertyPage::label</NAME>
+<TYPE>gchar*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rw</FLAGS>
+<NICK>Label</NICK>
+<BLURB>Text of the page's label.</BLURB>
+<DEFAULT>NULL</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxPropertyPage::label-widget</NAME>
+<TYPE>GtkWidget*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rw</FLAGS>
+<NICK>Label widget</NICK>
+<BLURB>A widget to display in place of the usual page label.</BLURB>
+<DEFAULT></DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxProviderPlugin::resident</NAME>
+<TYPE>gboolean</TYPE>
+<RANGE></RANGE>
+<FLAGS>rw</FLAGS>
+<NICK>Resident</NICK>
+<BLURB>Don't unload the plugin from memory.</BLURB>
+<DEFAULT>FALSE</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxRenamer::help-url</NAME>
+<TYPE>gchar*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rw</FLAGS>
+<NICK>Help URL</NICK>
+<BLURB>The URL to the documentation of the renamer.</BLURB>
+<DEFAULT>NULL</DEFAULT>
+</ARG>
+
+<ARG>
+<NAME>ThunarxRenamer::name</NAME>
+<TYPE>gchar*</TYPE>
+<RANGE></RANGE>
+<FLAGS>rwX</FLAGS>
+<NICK>Name</NICK>
+<BLURB>The user visible name of the renamer.</BLURB>
+<DEFAULT>NULL</DEFAULT>
+</ARG>
+

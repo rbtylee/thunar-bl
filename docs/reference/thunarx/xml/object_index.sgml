@@ -1,0 +1,38 @@
+
+<informaltable pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colwidth="1*"/>
+<colspec colwidth="1*"/>
+<colspec colwidth="1*"/>
+<tbody>
+<row>
+<entry><link linkend="GInitiallyUnowned">GInitiallyUnowned</link></entry>
+<entry><link linkend="GInterface">GInterface</link></entry>
+<entry><link linkend="GObject">GObject</link></entry>
+</row>
+<row>
+<entry><link linkend="GtkBin">GtkBin</link></entry>
+<entry><link linkend="GtkBox">GtkBox</link></entry>
+<entry><link linkend="GtkContainer">GtkContainer</link></entry>
+</row>
+<row>
+<entry><link linkend="GtkWidget">GtkWidget</link></entry>
+<entry><link linkend="ThunarxFileInfo">ThunarxFileInfo</link></entry>
+<entry><link linkend="ThunarxMenu">ThunarxMenu</link></entry>
+</row>
+<row>
+<entry><link linkend="ThunarxMenuItem">ThunarxMenuItem</link></entry>
+<entry><link linkend="ThunarxMenuProvider">ThunarxMenuProvider</link></entry>
+<entry><link linkend="ThunarxPreferencesProvider">ThunarxPreferencesProvider</link></entry>
+</row>
+<row>
+<entry><link linkend="ThunarxPropertyPage">ThunarxPropertyPage</link></entry>
+<entry><link linkend="ThunarxPropertyPageProvider">ThunarxPropertyPageProvider</link></entry>
+<entry><link linkend="ThunarxProviderFactory">ThunarxProviderFactory</link></entry>
+</row>
+<row>
+<entry><link linkend="ThunarxProviderPlugin">ThunarxProviderPlugin</link></entry>
+<entry><link linkend="ThunarxRenamer">ThunarxRenamer</link></entry>
+<entry><link linkend="ThunarxRenamerProvider">ThunarxRenamerProvider</link></entry>
+</row>
+</tbody></tgroup></informaltable>

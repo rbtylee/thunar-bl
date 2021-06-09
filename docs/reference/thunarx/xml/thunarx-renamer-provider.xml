@@ -1,0 +1,151 @@
+
+<refentry id="ThunarxRenamerProvider">
+<refmeta>
+<refentrytitle role="top_of_page" id="ThunarxRenamerProvider.top_of_page">ThunarxRenamerProvider</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>THUNARX Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>ThunarxRenamerProvider</refname>
+<refpurpose>The interface to extensions that provide additional bulk renamers</refpurpose>
+</refnamediv>
+
+<refsect1 id="ThunarxRenamerProvider.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-renamer-provider-get-renamers">thunarx_renamer_provider_get_renamers</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxRenamerProvider.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="ThunarxRenamerProvider-struct">ThunarxRenamerProvider</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="ThunarxRenamerProviderIface">ThunarxRenamerProviderIface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxRenamerProvider.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> ThunarxRenamerProvider
+</screen>
+</refsect1>
+<refsect1 id="ThunarxRenamerProvider.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+ThunarxRenamerProvider requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+
+<refsect1 id="ThunarxRenamerProvider.includes"><title>Includes</title><synopsis>#include &lt;thunarx/thunarx.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="ThunarxRenamerProvider.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <interface>ThunarxRenamerProvider</interface> interface is implemented by
+extensions which provide additional bulk renamers that should be used by the
+bulk rename dialog in Thunar.</para>
+
+</refsect1>
+<refsect1 id="ThunarxRenamerProvider.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="thunarx-renamer-provider-get-renamers" role="function">
+<title>thunarx_renamer_provider_get_renamers&#160;()</title>
+<indexterm zone="thunarx-renamer-provider-get-renamers"><primary>thunarx_renamer_provider_get_renamers</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+thunarx_renamer_provider_get_renamers (<parameter><link linkend="ThunarxRenamerProvider"><type>ThunarxRenamerProvider</type></link> *provider</parameter>);</programlisting>
+<para>Returns the list of <link linkend="ThunarxRenamer"><type>ThunarxRenamer</type></link><!---->s provided by the
+specified <parameter>provider</parameter>
+.</para>
+<para>The real implementation of this method MUST return the <link linkend="ThunarxRenamer"><type>ThunarxRenamer</type></link><!---->s
+with floating references (the default for <link linkend="g-object-new"><function>g_object_new()</function></link> on <link linkend="GtkWidget"><type>GtkWidget</type></link>
+derived types).</para>
+<para>The returned <link linkend="ThunarxRenamer"><type>ThunarxRenamer</type></link><!---->s will be reffed and sinked automatically
+by this function.</para>
+<para>As a special note, this method automatically takes a reference on the
+<parameter>provider</parameter>
+ for every <link linkend="ThunarxRenamer"><type>ThunarxRenamer</type></link> returned from the real implementation
+of this method in <parameter>provider</parameter>
+. This is to make sure that the extension stays
+in memory for atleast the time that the renamers are used. If the extension
+wants to stay in memory for a longer time, it'll need to take care of this
+itself (e.g. by taking an additional reference on the <parameter>provider</parameter>
+ itself,
+that's released at a later time).</para>
+<para>The caller is responsible to free the returned list of renamers using
+something like this when no longer needed:</para>
+<informalexample><programlisting>
+g_list_free_full (list, g_object_unref);
+</programlisting></informalexample>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="thunarx-renamer-provider-get-renamers.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>provider</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxRenamerProvider"><type>ThunarxRenamerProvider</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-renamer-provider-get-renamers.returns" role="returns">
+<title>Returns</title>
+<para>the list of <link linkend="ThunarxRenamer"><type>ThunarxRenamer</type></link><!---->s provided by the
+specified <parameter>provider</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> ThunarxRenamer]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="ThunarxRenamerProvider.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="ThunarxRenamerProvider-struct" role="struct">
+<title>ThunarxRenamerProvider</title>
+<indexterm zone="ThunarxRenamerProvider-struct"><primary>ThunarxRenamerProvider</primary></indexterm>
+<programlisting language="C">typedef struct _ThunarxRenamerProvider ThunarxRenamerProvider;</programlisting>
+</refsect2>
+<refsect2 id="ThunarxRenamerProviderIface" role="struct">
+<title>struct ThunarxRenamerProviderIface</title>
+<indexterm zone="ThunarxRenamerProviderIface"><primary>ThunarxRenamerProviderIface</primary></indexterm>
+<programlisting language="C">struct ThunarxRenamerProviderIface {
+  GList *(*get_renamers) (ThunarxRenamerProvider *provider);
+};
+</programlisting>
+<para>Interface with virtual methods implemented by extensions that provide
+additional bulk renamers for the integrated bulk renamer in Thunar.</para>
+<refsect3 id="ThunarxRenamerProviderIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxRenamerProviderIface.get-renamers">get_renamers</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>see <link linkend="thunarx-renamer-provider-get-renamers"><function>thunarx_renamer_provider_get_renamers()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>

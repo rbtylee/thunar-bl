@@ -1,0 +1,35 @@
+78% symbol docs coverage.
+102 symbols documented.
+7 symbols incomplete.
+28 not documented.
+
+
+THUNARX_CHECK_VERSION (<parameters>)
+THUNARX_DEFINE_ABSTRACT_TYPE (<parameters>)
+THUNARX_DEFINE_ABSTRACT_TYPE_WITH_CODE (<parameters>)
+THUNARX_DEFINE_TYPE (<parameters>)
+THUNARX_DEFINE_TYPE_EXTENDED (<parameters>)
+THUNARX_DEFINE_TYPE_WITH_CODE (<parameters>)
+THUNARX_IMPLEMENT_INTERFACE (<parameters>)
+THUNARX_MAJOR_VERSION
+THUNARX_MICRO_VERSION
+THUNARX_MINOR_VERSION
+THUNARX_TYPE_FILE_INFO_LIST
+ThunarxFileInfo
+ThunarxMenu
+ThunarxMenuItem
+ThunarxMenuItem::activate
+ThunarxMenuProvider
+ThunarxPreferencesProvider
+ThunarxPropertyPage
+ThunarxPropertyPageProvider
+ThunarxProviderFactory
+ThunarxProviderPlugin
+ThunarxRenamer
+ThunarxRenamerProvider
+thunarx_menu_append_item
+thunarx_menu_get_items
+thunarx_menu_item_list_free
+
+thunarx-version-information:long_description
+thunarx-version-information:short_description

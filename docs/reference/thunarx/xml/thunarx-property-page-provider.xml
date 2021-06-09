@@ -1,0 +1,179 @@
+
+<refentry id="ThunarxPropertyPageProvider">
+<refmeta>
+<refentrytitle role="top_of_page" id="ThunarxPropertyPageProvider.top_of_page">ThunarxPropertyPageProvider</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>THUNARX Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>ThunarxPropertyPageProvider</refname>
+<refpurpose>The interface to extensions that provide additional property pages</refpurpose>
+</refnamediv>
+
+<refsect1 id="ThunarxPropertyPageProvider.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="thunarx-property-page-provider-get-pages">thunarx_property_page_provider_get_pages</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxPropertyPageProvider.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="ThunarxPropertyPageProvider-struct">ThunarxPropertyPageProvider</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="ThunarxPropertyPageProviderIface">ThunarxPropertyPageProviderIface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="ThunarxPropertyPageProvider.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> ThunarxPropertyPageProvider
+</screen>
+</refsect1>
+<refsect1 id="ThunarxPropertyPageProvider.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+ThunarxPropertyPageProvider requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+
+<refsect1 id="ThunarxPropertyPageProvider.includes"><title>Includes</title><synopsis>#include &lt;thunarx/thunarx.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="ThunarxPropertyPageProvider.description" role="desc">
+<title role="desc.title">Description</title>
+<para>To add a property page to the file properties dialog, extensions must implement the</para>
+<type>ThunarxPropertyPageProvider</type> interface. This interface has only one virtual
+<para>method, <function>get_pages</function>, that is passed a list of <link
+linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> objects and returns a list
+of <link linkend="ThunarxPropertyPage"><type>ThunarxPropertyPage</type></link> objects.</para>
+
+</refsect1>
+<refsect1 id="ThunarxPropertyPageProvider.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="thunarx-property-page-provider-get-pages" role="function">
+<title>thunarx_property_page_provider_get_pages&#160;()</title>
+<indexterm zone="thunarx-property-page-provider-get-pages"><primary>thunarx_property_page_provider_get_pages</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+thunarx_property_page_provider_get_pages
+                               (<parameter><link linkend="ThunarxPropertyPageProvider"><type>ThunarxPropertyPageProvider</type></link> *provider</parameter>,
+                                <parameter><link linkend="GList"><type>GList</type></link> *files</parameter>);</programlisting>
+<para>Returns the list of <link linkend="ThunarxPropertyPage"><type>ThunarxPropertyPage</type></link><!---->s that <parameter>provider</parameter>
+ has to offer for <parameter>files</parameter>
+.</para>
+<para>Extensions that implement this interface, must first check whether they support all the
+<link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link><!---->s in the list of <parameter>files</parameter>
+. Most extensions will probably only support
+<link linkend="ThunarxPropertyPage"><type>ThunarxPropertyPage</type></link><!---->s for exactly one file of a certain type. For example an MP3-Tag
+editor property page will most probably support only a single audio file, and so the method
+would be implemented like this</para>
+<informalexample><programlisting>
+GList*
+tag_provider_get_pages (ThunarxPropertyPageProvider *property_page_provider,
+                        GList                       *files)
+{
+  if (g_list_length (files) != 1)
+    return NULL;
+  else if (!thunarx_file_info_has_mime_type (files->data, "audio/mp3"))
+    return NULL;
+  else
+    return g_list_append (NULL, tag_page_new (files->data));
+}
+</programlisting></informalexample>
+<para>where <link linkend="tag-page-new"><function>tag_page_new()</function></link> allocates a new <link linkend="TagPage"><type>TagPage</type></link> instance for a <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link> object
+passed to it. See the description of the <link linkend="ThunarxPropertyPage"><type>ThunarxPropertyPage</type></link> class for additional
+information about the <link linkend="TagPage"><type>TagPage</type></link> example class.</para>
+<para>As a special note, this method automatically takes a reference on the
+<parameter>provider</parameter>
+ for every <link linkend="ThunarxPropertyPage"><type>ThunarxPropertyPage</type></link> object returned from the real implementation
+of this method in <parameter>provider</parameter>
+. This is to make sure that the extension stays
+in memory for atleast the time that the pages are used. If the extension
+wants to stay in memory for a longer time, it'll need to take care of this
+itself (e.g. by taking an additional reference on the <parameter>provider</parameter>
+ itself,
+that's released at a later time).</para>
+<para>The caller is responsible to free the returned list of pages using
+something like this when no longer needed:</para>
+<informalexample><programlisting>
+g_list_foreach (list, (GFunc) g_object_ref_sink, NULL);
+g_list_free_full (list, g_object_unref);
+</programlisting></informalexample>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="thunarx-property-page-provider-get-pages.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>provider</para></entry>
+<entry role="parameter_description"><para>a <link linkend="ThunarxPropertyPageProvider"><type>ThunarxPropertyPageProvider</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>files</para></entry>
+<entry role="parameter_description"><para>the list of <link linkend="ThunarxFileInfo"><type>ThunarxFileInfo</type></link><!---->s
+for which a properties dialog will be displayed. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>element-type</acronym> ThunarxFileInfo]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="thunarx-property-page-provider-get-pages.returns" role="returns">
+<title>Returns</title>
+<para>the list of
+<link linkend="ThunarxPropertyPage"><type>ThunarxPropertyPage</type></link><!---->s that <parameter>provider</parameter>
+has to offer for <parameter>files</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> ThunarxPropertyPage]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="ThunarxPropertyPageProvider.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="ThunarxPropertyPageProvider-struct" role="struct">
+<title>ThunarxPropertyPageProvider</title>
+<indexterm zone="ThunarxPropertyPageProvider-struct"><primary>ThunarxPropertyPageProvider</primary></indexterm>
+<programlisting language="C">typedef struct _ThunarxPropertyPageProvider ThunarxPropertyPageProvider;</programlisting>
+</refsect2>
+<refsect2 id="ThunarxPropertyPageProviderIface" role="struct">
+<title>struct ThunarxPropertyPageProviderIface</title>
+<indexterm zone="ThunarxPropertyPageProviderIface"><primary>ThunarxPropertyPageProviderIface</primary></indexterm>
+<programlisting language="C">struct ThunarxPropertyPageProviderIface {
+  GList *(*get_pages) (ThunarxPropertyPageProvider *provider,
+                       GList                       *files);
+};
+</programlisting>
+<para>Interface with virtual methods implemented by extensions that provide
+additional pages for the file properties dialog.</para>
+<refsect3 id="ThunarxPropertyPageProviderIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="ThunarxPropertyPageProviderIface.get-pages">get_pages</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>see <link linkend="thunarx-property-page-provider-get-pages"><function>thunarx_property_page_provider_get_pages()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>
